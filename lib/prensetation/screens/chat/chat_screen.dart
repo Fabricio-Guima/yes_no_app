@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yes_no_app/prensetation/widgets/chat/her_message_bubble.dart';
 import 'package:yes_no_app/prensetation/widgets/chat/my_message_bubble.dart';
+import 'package:yes_no_app/prensetation/widgets/shared/message_field_box.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -13,7 +14,7 @@ class ChatScreen extends StatelessWidget {
           padding: EdgeInsets.all(4.0),
           child: CircleAvatar(),
         ),
-        title: const Text('Contatinho <3'),
+        title: const Text('Amore <3'),
         centerTitle: true,
       ),
       body: _ChatView(),
@@ -37,7 +38,8 @@ class _ChatView extends StatelessWidget {
                           ? const HerMessagebubble()
                           : const MyMessagebubble();
                     })),
-            const Text('Mundo')
+            // teclado para digitar
+            const MessageFieldBox(),
           ],
         ),
       ),
