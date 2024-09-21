@@ -1,7 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:yes_no_app/prensetation/domain/entities/message.dart';
+
 class HerMessagebubble extends StatelessWidget {
-  const HerMessagebubble({super.key});
+  const HerMessagebubble({super.key, required this.message});
+
+  final Message message;
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +18,13 @@ class HerMessagebubble extends StatelessWidget {
             decoration: BoxDecoration(
                 color: colors.secondary,
                 borderRadius: BorderRadius.circular(20)),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child:
-                  Text('Mensagem dela', style: TextStyle(color: Colors.white)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Text(message.text,
+                  style: const TextStyle(color: Colors.white)),
             )),
         const SizedBox(height: 5),
-        _ImageBubble(),
+        _ImageBubble(message.imageUrl!),
         const SizedBox(height: 10),
         // todo image
       ],
@@ -28,6 +33,12 @@ class HerMessagebubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
+  final String imageUrl;
+
+  const _ImageBubble(
+    this.imageUrl,
+  );
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -35,7 +46,7 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
-        'https://yesno.wtf/assets/no/20-56c4b19517aa69c8f7081939198341a4.gif',
+        imageUrl,
         width: size.width * 0.7,
         height: 150,
         fit: BoxFit.cover,
@@ -48,7 +59,7 @@ class _ImageBubble extends StatelessWidget {
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             child: const Text(
-                'Meu Amor está enviando uma imagem'), // EdgeInsets.all(80.0),
+                'Contact está enviando uma imagem'), // EdgeInsets.all(80.0),
           );
         },
       ),
