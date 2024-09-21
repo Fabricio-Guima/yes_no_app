@@ -45,7 +45,7 @@ class _ChatView extends StatelessWidget {
 
                       return (message.fromWho == FromWho.me)
                           ? MyMessagebubble(message: message)
-                          : const HerMessagebubble();
+                          : HerMessagebubble(message: message);
                     })),
             // teclado para digitar
             MessageFieldBox(
