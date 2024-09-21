@@ -1,6 +1,8 @@
 # yes_no_app
 
-A new Flutter project.
+Um projeto feito em flutter usando algumas boas práticas de clean arch e reutilização de componentes (widgets) para uma manutenção mais fácil do código.
+O objetivo deste projeto é simular um chat entre duas "pessoas" e ao enviar uma mensagem para o contato e nesta mensagem conter o caractere "?", o código fara
+uma request para uma api que irá responder com "sim" e enviar um gif dizendo "sim" para simular uma conversa entre duas pessoas.
 
 ## Getting Started
 
